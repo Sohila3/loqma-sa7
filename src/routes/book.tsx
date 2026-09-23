@@ -1,4 +1,3 @@
-
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import {
@@ -256,16 +255,16 @@ function BookPage() {
     <main>
       {/* Page Intro */}
       <section className="bg-secondary/40">
-        <div className="site-container py-12 text-center sm:py-16">
-          <p className="mb-3 text-sm font-bold text-gold">
+        <div className="site-container py-8 text-center sm:py-16">
+          <p className="mb-2 text-xs font-bold text-gold sm:mb-3 sm:text-sm">
             طلبك في خطوتين
           </p>
 
-          <h1 className="font-display text-4xl font-bold text-primary sm:text-5xl">
+          <h1 className="font-display text-3xl font-bold text-primary sm:text-5xl">
             احجز لقمتك الطازة
           </h1>
 
-          <p className="mx-auto mt-4 max-w-2xl leading-8 text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:mt-4 sm:text-base sm:leading-8">
             اختاري المنتجات اللي نفسك فيها، واكتبي بيانات
             التوصيل وإحنا هنوصلك طلبك بكل سهولة.
           </p>
@@ -273,20 +272,20 @@ function BookPage() {
       </section>
 
       {/* Booking */}
-      <section className="site-container py-12 sm:py-16">
-        <div className="mx-auto max-w-3xl">
+      <section className="site-container py-6 sm:py-16">
+        <div className="mx-auto w-full max-w-3xl">
           {/* Delivery Notice */}
-          <div className="mb-8 flex gap-4 rounded-lg border border-gold/30 bg-accent/30 p-5">
-            <div className="grid size-12 shrink-0 place-items-center rounded-full bg-accent text-primary">
-              <MapPin className="size-5" />
+          <div className="mb-5 flex items-start gap-3 rounded-lg border border-gold/30 bg-accent/30 p-4 sm:mb-8 sm:gap-4 sm:p-5">
+            <div className="grid size-10 shrink-0 place-items-center rounded-full bg-accent text-primary sm:size-12">
+              <MapPin className="size-4 sm:size-5" />
             </div>
 
-            <div>
-              <h2 className="font-display text-xl font-bold text-primary">
+            <div className="min-w-0">
+              <h2 className="font-display text-base font-bold text-primary sm:text-xl">
                 التوصيل متاح داخل محافظة الغربية
               </h2>
 
-              <p className="mt-1 text-sm leading-7 text-muted-foreground">
+              <p className="mt-1 text-xs leading-6 text-muted-foreground sm:text-sm sm:leading-7">
                 اكتبي عنوانك بالتفصيل، وسنتواصل معك لتأكيد
                 الطلب وموعد التوصيل.
               </p>
@@ -296,13 +295,13 @@ function BookPage() {
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="grid gap-6 rounded-lg border border-gold/25 bg-card p-5 shadow-soft sm:p-8"
+            className="grid gap-4 rounded-lg border border-gold/25 bg-card p-4 shadow-soft sm:gap-6 sm:p-8"
           >
             {/* Name */}
             <div className="grid gap-2">
               <label
                 htmlFor="name"
-                className="font-bold text-primary"
+                className="text-sm font-bold text-primary"
               >
                 الاسم
               </label>
@@ -316,7 +315,7 @@ function BookPage() {
                 }
                 placeholder="اكتبي اسمك"
                 required
-                className="h-12 rounded-md border border-input bg-background px-4 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20"
+                className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20 sm:h-12 sm:px-4"
               />
             </div>
 
@@ -324,7 +323,7 @@ function BookPage() {
             <div className="grid gap-2">
               <label
                 htmlFor="address"
-                className="font-bold text-primary"
+                className="text-sm font-bold text-primary"
               >
                 العنوان
               </label>
@@ -337,8 +336,8 @@ function BookPage() {
                 }
                 placeholder="اكتبي العنوان بالتفصيل"
                 required
-                rows={4}
-                className="resize-none rounded-md border border-input bg-background p-4 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20"
+                rows={3}
+                className="w-full resize-none rounded-md border border-input bg-background p-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20 sm:p-4"
               />
             </div>
 
@@ -346,7 +345,7 @@ function BookPage() {
             <div className="grid gap-2">
               <label
                 htmlFor="product"
-                className="flex items-center gap-2 font-bold text-primary"
+                className="flex items-center gap-2 text-sm font-bold text-primary"
               >
                 <ShoppingBag className="size-4" />
                 اختاري المنتج
@@ -359,7 +358,7 @@ function BookPage() {
                   handleProductChange(event.target.value)
                 }
                 required
-                className="h-12 rounded-md border border-input bg-background px-4 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20"
+                className="h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20 sm:h-12 sm:px-4"
               >
                 <option value="" disabled>
                   اختاري من منتجاتنا
@@ -378,28 +377,28 @@ function BookPage() {
 
             {/* Weight Options */}
             {selected && selected.unit === "kg" && (
-              <div className="grid gap-3">
-                <p className="font-bold text-primary">
+              <div className="grid gap-2 sm:gap-3">
+                <p className="text-sm font-bold text-primary">
                   اختاري الحجم
                 </p>
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3">
                   {/* Half Kilo */}
                   <button
                     type="button"
                     onClick={() => setWeight("half")}
-                    className={`rounded-md border px-4 py-4 text-center transition ${
+                    className={`min-w-0 rounded-md border px-2 py-3 text-center transition sm:px-4 sm:py-4 ${
                       weight === "half"
                         ? "border-primary bg-primary text-primary-foreground shadow-sm"
                         : "border-border bg-background text-primary hover:border-gold hover:bg-accent/40"
                     }`}
                   >
-                    <span className="block font-bold">
+                    <span className="block text-sm font-bold sm:text-base">
                       نصف كيلو
                     </span>
 
                     <span
-                      className={`mt-1 block text-sm ${
+                      className={`mt-1 block text-xs sm:text-sm ${
                         weight === "half"
                           ? "text-primary-foreground/80"
                           : "text-muted-foreground"
@@ -415,18 +414,18 @@ function BookPage() {
                   <button
                     type="button"
                     onClick={() => setWeight("full")}
-                    className={`rounded-md border px-4 py-4 text-center transition ${
+                    className={`min-w-0 rounded-md border px-2 py-3 text-center transition sm:px-4 sm:py-4 ${
                       weight === "full"
                         ? "border-primary bg-primary text-primary-foreground shadow-sm"
                         : "border-border bg-background text-primary hover:border-gold hover:bg-accent/40"
                     }`}
                   >
-                    <span className="block font-bold">
+                    <span className="block text-sm font-bold sm:text-base">
                       كيلو
                     </span>
 
                     <span
-                      className={`mt-1 block text-sm ${
+                      className={`mt-1 block text-xs sm:text-sm ${
                         weight === "full"
                           ? "text-primary-foreground/80"
                           : "text-muted-foreground"
@@ -441,23 +440,23 @@ function BookPage() {
 
             {/* Selected Unit Info */}
             {selected && (
-              <div className="rounded-md bg-accent/40 px-4 py-3 text-sm">
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-muted-foreground">
+              <div className="rounded-md bg-accent/40 px-3 py-3 text-sm sm:px-4">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-xs text-muted-foreground sm:text-sm">
                     سعر الوحدة
                   </span>
 
-                  <strong className="text-lg text-primary">
+                  <strong className="text-base text-primary sm:text-lg">
                     {selectedUnitPrice} جنيه
                   </strong>
                 </div>
 
-                <div className="mt-2 flex items-center justify-between gap-4">
-                  <span className="text-muted-foreground">
+                <div className="mt-2 flex items-center justify-between gap-3">
+                  <span className="text-xs text-muted-foreground sm:text-sm">
                     النوع
                   </span>
 
-                  <span className="font-bold text-primary">
+                  <span className="text-sm font-bold text-primary">
                     {selectedWeightLabel}
                   </span>
                 </div>
@@ -468,7 +467,7 @@ function BookPage() {
             <div className="grid gap-2">
               <label
                 htmlFor="quantity"
-                className="font-bold text-primary"
+                className="text-sm font-bold text-primary"
               >
                 الكمية
               </label>
@@ -482,7 +481,7 @@ function BookPage() {
                   setQuantity(event.target.value)
                 }
                 required
-                className="h-12 rounded-md border border-input bg-background px-4 outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20"
+                className="h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20 sm:h-12 sm:px-4"
               />
             </div>
 
@@ -500,18 +499,18 @@ function BookPage() {
 
             {/* Order Items */}
             {orderItems.length > 0 && (
-              <div className="grid gap-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="font-display text-xl font-bold text-primary">
+              <div className="grid gap-3 sm:gap-4">
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="font-display text-lg font-bold text-primary sm:text-xl">
                     طلبك
                   </h2>
 
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-xs text-muted-foreground sm:text-sm">
                     {orderItems.length} منتج
                   </span>
                 </div>
 
-                <div className="grid gap-3">
+                <div className="grid gap-2 sm:gap-3">
                   {orderItems.map((item) => {
                     const unitPrice =
                       getItemUnitPrice(item);
@@ -522,15 +521,15 @@ function BookPage() {
                     return (
                       <div
                         key={item.id}
-                        className="rounded-lg border border-border bg-background p-4"
+                        className="rounded-lg border border-border bg-background p-3 sm:p-4"
                       >
-                        <div className="flex items-start justify-between gap-4">
-                          <div>
-                            <h3 className="font-bold text-primary">
+                        <div className="flex min-w-0 items-start justify-between gap-2 sm:gap-4">
+                          <div className="min-w-0">
+                            <h3 className="break-words text-sm font-bold text-primary sm:text-base">
                               {item.product.name}
                             </h3>
 
-                            <p className="mt-1 text-sm text-muted-foreground">
+                            <p className="mt-1 break-words text-xs text-muted-foreground sm:text-sm">
                               {
                                 categoryLabel[
                                   item.product.category
@@ -546,51 +545,53 @@ function BookPage() {
                             onClick={() =>
                               removeItem(item.id)
                             }
-                            className="grid size-9 shrink-0 place-items-center rounded-md text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive"
+                            className="grid size-8 shrink-0 place-items-center rounded-md text-muted-foreground transition hover:bg-destructive/10 hover:text-destructive sm:size-9"
                             aria-label="حذف المنتج"
                           >
                             <Trash2 className="size-4" />
                           </button>
                         </div>
 
-                        <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
+                        <div className="mt-3 flex flex-col gap-3 border-t border-border/60 pt-3 sm:mt-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:border-t-0 sm:pt-0">
                           {/* Quantity Controls */}
-                          <div className="flex items-center gap-2">
-                            <button
-                              type="button"
-                              onClick={() =>
-                                decreaseQuantity(item.id)
-                              }
-                              className="grid size-9 place-items-center rounded-md border border-border bg-card text-primary transition hover:bg-accent"
-                              aria-label="تقليل الكمية"
-                            >
-                              <Minus className="size-4" />
-                            </button>
+                          <div className="flex items-center justify-between sm:justify-start">
+                            <div className="flex items-center gap-2">
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  decreaseQuantity(item.id)
+                                }
+                                className="grid size-9 place-items-center rounded-md border border-border bg-card text-primary transition hover:bg-accent"
+                                aria-label="تقليل الكمية"
+                              >
+                                <Minus className="size-4" />
+                              </button>
 
-                            <span className="grid min-w-10 place-items-center font-bold text-primary">
-                              {item.quantity}
-                            </span>
+                              <span className="grid min-w-8 place-items-center font-bold text-primary">
+                                {item.quantity}
+                              </span>
 
-                            <button
-                              type="button"
-                              onClick={() =>
-                                increaseQuantity(item.id)
-                              }
-                              className="grid size-9 place-items-center rounded-md border border-border bg-card text-primary transition hover:bg-accent"
-                              aria-label="زيادة الكمية"
-                            >
-                              <Plus className="size-4" />
-                            </button>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  increaseQuantity(item.id)
+                                }
+                                className="grid size-9 place-items-center rounded-md border border-border bg-card text-primary transition hover:bg-accent"
+                                aria-label="زيادة الكمية"
+                              >
+                                <Plus className="size-4" />
+                              </button>
+                            </div>
                           </div>
 
                           {/* Item Total */}
-                          <div className="text-left">
+                          <div className="flex items-center justify-between gap-3 sm:block sm:text-left">
                             <p className="text-xs text-muted-foreground">
                               {unitPrice} جنيه ×{" "}
                               {item.quantity}
                             </p>
 
-                            <strong className="text-lg text-primary">
+                            <strong className="text-base text-primary sm:text-lg">
                               {itemTotal} جنيه
                             </strong>
                           </div>
@@ -601,13 +602,13 @@ function BookPage() {
                 </div>
 
                 {/* Total */}
-                <div className="rounded-lg border border-gold/30 bg-secondary/40 p-5">
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="font-bold text-primary">
+                <div className="rounded-lg border border-gold/30 bg-secondary/40 p-4 sm:p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="text-sm font-bold text-primary sm:text-base">
                       الإجمالي الكلي
                     </span>
 
-                    <span className="text-2xl font-bold text-primary">
+                    <span className="text-xl font-bold text-primary sm:text-2xl">
                       {total} جنيه
                     </span>
                   </div>
@@ -619,14 +620,14 @@ function BookPage() {
             <Button
               type="submit"
               size="lg"
-              className="mt-2 w-full"
+              className="mt-1 w-full"
               disabled={orderItems.length === 0}
             >
               <MessageCircle className="size-5" />
               تأكيد الطلب عبر واتساب
             </Button>
 
-            <p className="text-center text-xs leading-6 text-muted-foreground">
+            <p className="text-center text-[11px] leading-5 text-muted-foreground sm:text-xs sm:leading-6">
               بعد الضغط على الزر سيتم فتح واتساب برسالة تحتوي
               على تفاصيل طلبك بالكامل.
             </p>
@@ -636,4 +637,3 @@ function BookPage() {
     </main>
   );
 }
-

@@ -64,8 +64,8 @@ export const Route = createRootRoute({
       },
 {
   rel: "icon",
-  href: "/Loqma.jpeg",
   type: "image/jpeg",
+  href: "/Loqma.jpeg?v=2",
 },
       {
         rel: "preconnect",
