@@ -1,6 +1,6 @@
 
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 import { PageIntro } from "@/components/bakery";
 import { Button } from "@/components/ui/button";
 import { makeWhatsAppUrl } from "@/lib/products";
