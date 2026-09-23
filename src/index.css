@@ -1,0 +1,65 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Clock3, Heart, MessageCircle, ShieldCheck, Sparkles, Wheat } from "lucide-react";
+import { Benefit, FlourConceptCard, ProductGrid, SectionHeading } from "@/components/bakery";
+import { Button } from "@/components/ui/button";
+import heroImage from "@/assets/loqma-hero.jpg";
+
+// No head() here: the home route inherits title/description/og/twitter from
+// __root.tsx, and ships no og:image so serve-time hosting can inject the
+// project's social preview (explicit og:image or latest screenshot).
+export const Route = createFileRoute("/")({
+  head: () => ({ meta: [
+    { title: "لقمة صح | مخبوزات طازة بالدقيق الأبيض والحبة الكاملة" },
+    { name: "description", content: "لقمة صح تقدم مخبوزات طازة يوميًا بمكونات مختارة من الدقيق الأبيض ودقيق الحبة الكاملة." },
+    { property: "og:title", content: "لقمة صح | طعم تحبه وصحة تختارها" },
+    { property: "og:description", content: "مخبوزات طازة بمكونات مختارة، والحجز بسهولة عبر واتساب." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary_large_image" },
+  ]}),
+  component: Index,
+});
+
+// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Index() {
+  return (
+    <div
+      className="flex min-h-screen items-center justify-center"
+      style={{ backgroundColor: "#fcfbf8" }}
+    >
+      <img
+        data-lovable-blank-page-placeholder="REMOVE_THIS"
+        src="https://cdn.gpteng.co/blank-app-v1.svg"
+        alt="Your app will live here!"
+      />
+    </div>
+  );
+  return <main>
+    <section className="relative min-h-[calc(100svh-4.5rem)] overflow-hidden bg-muted">
+      <img src={heroImage} alt="تشكيلة من مخبوزات لقمة صح الطازة" width={1536} height={1024} fetchPriority="high" className="absolute inset-0 size-full object-cover object-left sm:object-center" />
+      <div className="absolute inset-0 bg-gradient-to-l from-background via-background/92 to-background/10" />
+      <div className="site-container relative flex min-h-[calc(100svh-4.5rem)] items-center py-16">
+        <div className="max-w-2xl reveal">
+          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-background/80 px-4 py-2 text-sm font-bold text-primary backdrop-blur"><Sparkles className="size-4 text-gold" /> مخبوزات طازة كل يوم</span>
+          <h1 className="font-display text-5xl font-bold leading-[1.35] text-primary sm:text-6xl lg:text-7xl">لقمة صح<span className="text-gold">...</span><br />طعم تحبه وصحة تختارها</h1>
+          <p className="mt-6 max-w-xl text-base leading-8 text-foreground/75 sm:text-lg">مخبوزات طازة بمكونات مختارة، من الدقيق الأبيض ودقيق الحبة الكاملة.</p>
+          <div className="mt-8 flex flex-wrap gap-3"><Button asChild size="lg"><Link to="/products">تصفح المنتجات</Link></Button><Button asChild size="lg" variant="outline"><Link to="/book"><MessageCircle /> احجز طلبك</Link></Button></div>
+          <div className="mt-10 flex flex-wrap gap-5 text-sm text-muted-foreground"><span className="flex items-center gap-2"><ShieldCheck className="size-4 text-gold" /> مكونات موثوقة</span><span className="flex items-center gap-2"><Clock3 className="size-4 text-gold" /> تحضير يومي</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-18 sm:py-24"><div className="site-container grid items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="relative mx-auto grid aspect-square w-full max-w-md place-items-center rounded-full border border-gold/30 bg-accent/35"><Wheat className="size-36 text-gold/35" /><span className="absolute font-display text-3xl font-bold text-primary">من الفرن للقلب</span></div>
+      <div><span className="text-sm font-bold text-gold">حكايتنا</span><h2 className="mt-3 font-display text-4xl font-bold leading-snug text-primary">لقمة معمولة بحب،<br />واختيار يناسب يومك</h2><p className="mt-5 leading-8 text-muted-foreground">بدأت «لقمة صح» من إيمان بسيط: إن المخبوزات الطازة ممكن تجمع بين طعم البيت وجودة المكونات. علشان كده بنخبز يوميًا، ونقدم لك اختيارًا واضحًا بين وصفات الدقيق الأبيض الكلاسيكية ومخبوزات الحبة الكاملة الغنية.</p><div className="mt-7 grid gap-3 sm:grid-cols-2"><span className="flex items-center gap-3 text-sm font-bold text-primary"><Heart className="size-5 text-gold" /> مصنوع بحب واهتمام</span><span className="flex items-center gap-3 text-sm font-bold text-primary"><Wheat className="size-5 text-gold" /> اختيار يناسب كل بيت</span></div></div>
+    </div></section>
+
+    <section className="bg-muted py-18 sm:py-24"><div className="site-container"><SectionHeading eyebrow="اختار دقيقك" title="طعمك المفضل، بطريقتك">كل وصفة عندنا لها شخصيتها، من الطعم الكلاسيكي الناعم إلى نكهة الحبوب الكاملة الغنية.</SectionHeading><div className="grid gap-6 lg:grid-cols-2"><FlourConceptCard type="white" /><FlourConceptCard type="whole" /></div></div></section>
+
+    <section className="py-18 sm:py-24"><div className="site-container"><SectionHeading eyebrow="من الفرن" title="الأكثر طلبًا">منتجات مختارة تُخبز طازة، وتوصل لك بأفضل طعم وقوام.</SectionHeading><ProductGrid limit={8} /><div className="mt-10 text-center"><Button asChild variant="outline" size="lg"><Link to="/products">شاهد كل الـ 29 منتج</Link></Button></div></div></section>
+
+    <section className="border-y border-gold/20 bg-accent/30 py-18 sm:py-24"><div className="site-container"><SectionHeading eyebrow="ليه لقمة صح؟" title="كل تفصيلة محسوبة">من أول اختيار المكونات لحد تأكيد طلبك، نخلي التجربة بسيطة ومضمونة.</SectionHeading><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><Benefit icon={<Clock3 />} title="مخبوزات طازة" text="تحضير يومي بكميات مدروسة للحفاظ على الطراوة." /><Benefit icon={<ShieldCheck />} title="مكونات مختارة" text="مكونات موثوقة ووصفات متوازنة بجودة ثابتة." /><Benefit icon={<Wheat />} title="اختيارات متنوعة" text="دقيق أبيض أو حبة كاملة لتختار الأنسب لك." /><Benefit icon={<MessageCircle />} title="حجز سهل" text="أرسل طلبك في ثوانٍ برسالة واتساب جاهزة." /></div></div></section>
+
+    <section className="py-18 sm:py-24"><div className="site-container flex flex-col items-center justify-between gap-7 rounded-lg border border-gold/30 bg-primary p-8 text-center text-primary-foreground shadow-soft sm:p-12 lg:flex-row lg:text-right"><div><span className="text-sm font-bold text-highlight">جاهز تطلب؟</span><h2 className="mt-2 font-display text-3xl font-bold sm:text-4xl">لقمتك الطازة على بُعد رسالة</h2><p className="mt-3 text-primary-foreground/70">اختار المنتج والكمية وسيُفتح واتساب بطلبك جاهزًا.</p></div><Button asChild variant="light" size="lg"><Link to="/book"><MessageCircle /> احجز طلبك الآن</Link></Button></div></section>
+  </main>;
+}
