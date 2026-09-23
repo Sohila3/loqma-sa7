@@ -62,16 +62,11 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
-      {
-        rel: "icon",
-        href: "/favicon.ico",
-        type: "image/x-icon",
-      },
-      {
-        rel: "icon",
-        href: "/favicon.svg",
-        type: "image/svg+xml",
-      },
+{
+  rel: "icon",
+  href: "/Loqma.jpeg",
+  type: "image/jpeg",
+},
       {
         rel: "preconnect",
         href: "https://fonts.googleapis.com",
@@ -100,7 +95,11 @@ function RootShell() {
       <HeadContent />
 
       <QueryClientProvider client={queryClient}>
-        <div className="min-h-screen overflow-x-clip" dir="rtl">
+        <div
+          lang="ar"
+          dir="rtl"
+          className="min-h-screen overflow-x-hidden"
+        >
           <Navbar />
 
           <main>
